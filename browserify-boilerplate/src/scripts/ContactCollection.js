@@ -1,4 +1,6 @@
 //grab all contacts
+// import ContactList from "./ContactList"
+
 
 const contactManager = {
     grabAllContacts: function () {
@@ -9,14 +11,19 @@ const contactManager = {
     //post contact to database
 
     postContact: function (contactObject) {
-        fetch("http://localhost:8088/contacts", {
+        return fetch("http://localhost:8088/contacts", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(contactObject)
         })
-    }
+    },
+    deleteContact: (cardId) => {
+        return fetch(`http://localhost:8088/contacts/${cardId}`, {
+                method: "DELETE"
+        })
+  }
 }
 
 export default contactManager
