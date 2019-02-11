@@ -5,5 +5,4 @@ const putContactOnDom = (name, phone, address) => {
    <br><strong>Address:</strong> ${address}</div>
    <hr/>`
 }
-
 export default putContactOnDom
