@@ -3,7 +3,7 @@ import putContactOnDom from "./Contact"
 
 
 const displayContactList = (contactElement) => {
-contactElement.innerHTML = ""
+    contactElement.innerHTML = ""
     contactManager.grabAllContacts().then((parsedContacts) => {
         parsedContacts.forEach(contact => {
             const name = contact.name
@@ -13,7 +13,6 @@ contactElement.innerHTML = ""
 
             let contactHTML = putContactOnDom(name, phone, address, id)
             contactElement.innerHTML += contactHTML
-
         })
     })
 }

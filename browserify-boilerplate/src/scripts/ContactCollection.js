@@ -7,9 +7,10 @@ const contactManager = {
         return fetch("http://localhost:8088/contacts")
             .then(contacts => contacts.json())
     },
-
-    //post contact to database
-
+    grabContact: function (cardId) {
+        return fetch(`http://localhost:8088/contacts/${cardId}`)
+            .then(contacts => contacts.json())
+    },
     postContact: function (contactObject) {
         return fetch("http://localhost:8088/contacts", {
             method: "POST",
@@ -19,11 +20,20 @@ const contactManager = {
             body: JSON.stringify(contactObject)
         })
     },
+    editContact: function (cardId, contactObject) {
+        return fetch(`http://localhost:8088/contacts/${cardId}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(contactObject)
+        })
+    },
     deleteContact: (cardId) => {
         return fetch(`http://localhost:8088/contacts/${cardId}`, {
-                method: "DELETE"
+            method: "DELETE"
         })
-  }
+    }
 }
 
 export default contactManager
