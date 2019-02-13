@@ -1,17 +1,16 @@
 //grab all contacts
 // import ContactList from "./ContactList"
 
-
 const contactManager = {
-    grabAllContacts: function () {
+    grabAllContacts () {
         return fetch("http://localhost:8088/contacts")
             .then(contacts => contacts.json())
     },
-    grabContact: function (cardId) {
+    grabContact (cardId) {
         return fetch(`http://localhost:8088/contacts/${cardId}`)
             .then(contacts => contacts.json())
     },
-    postContact: function (contactObject) {
+    postContact (contactObject) {
         return fetch("http://localhost:8088/contacts", {
             method: "POST",
             headers: {
@@ -20,7 +19,7 @@ const contactManager = {
             body: JSON.stringify(contactObject)
         })
     },
-    editContact: function (cardId, contactObject) {
+    editContact (cardId, contactObject) {
         return fetch(`http://localhost:8088/contacts/${cardId}`, {
             method: "PUT",
             headers: {
@@ -29,7 +28,7 @@ const contactManager = {
             body: JSON.stringify(contactObject)
         })
     },
-    deleteContact: (cardId) => {
+    deleteContact (cardId) {
         return fetch(`http://localhost:8088/contacts/${cardId}`, {
             method: "DELETE"
         })

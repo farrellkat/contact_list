@@ -26,6 +26,7 @@ const eventListeners = {
             } else {
                 contactManager.editContact(cardId, contactComponent).then(() => {
                     document.querySelector("#submitButton").textContent = "Submit"
+                    document.querySelector("#inputId").value = ""
                     displayContactList(contactElement)
                 })
             }
@@ -52,6 +53,7 @@ const eventListeners = {
                     document.querySelector("#phoneInput").value = contact.phone
                     document.querySelector("#addressInput").value = contact.address
                 })
+
             }
         });
     }
